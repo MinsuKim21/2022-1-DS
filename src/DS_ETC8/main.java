@@ -15,7 +15,7 @@ public class main {
         h.print();
         h.insert(60,60);
         h.print();
-        h.insert(20,20);
+        h.insert(20,20);q
         h.print();
         h.insert(50,50);
         h.print();
