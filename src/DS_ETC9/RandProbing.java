@@ -3,7 +3,8 @@ package DS_ETC9;
 import java.util.Random;
 
 public class RandProbing <K,V>{
-    private int N = 0, M = 13;
+    private int cnt=0;
+    private int N = 0, M = 11;
     private K[] a = (K[]) new Object[M];
     private V[] dt = (V[]) new Object[M];
     private int hash(K key){
@@ -26,6 +27,8 @@ public class RandProbing <K,V>{
                 return;
             }
             i = (initialpos+ rand.nextInt(1000))%M;
+            ++cnt;
+            System.out.println("충돌: "+cnt);
         } while (N<M);
     }
     public V get(K key){
@@ -43,9 +46,9 @@ public class RandProbing <K,V>{
     public static void main (String[] args){
         RandProbing t = new RandProbing();
 
-        t.put(25,"grape"); t.put(37,"apple"); t.put(18,"bananna");
-        t.put(55,"cherry");t.put(22,"mango"); t.put(35,"lime");
-        t.put(50,"orange"); t.put(63,"watermelon");
+        t.put(71,"grape"); t.put(23,"apple");t.put(73,"banana");
+        t.put(49,"orange"); t.put(54,"watermelon");t.put(89,"kiwi");
+        t.put(39,"mango");
 
         System.out.println("탐색 결과");
         System.out.println("50의 data = " + t.get(50));

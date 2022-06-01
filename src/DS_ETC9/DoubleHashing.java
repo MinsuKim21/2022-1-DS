@@ -1,7 +1,8 @@
 package DS_ETC9;
 //자료구조#9_60211646_김민수
 public class DoubleHashing <K,V>{
-    private int N = 0, M = 13;
+    private int cnt;
+    private int N = 0, M = 11;
     private K[] a = (K[]) new Object[M];
     private V[] dt = (V[]) new Object[M];
     private int hash(K key){
@@ -25,6 +26,8 @@ public class DoubleHashing <K,V>{
             }
             i = (initialpos+j*d)%M;
             j++;
+            ++cnt;
+            System.out.println("충돌: "+cnt);
         } while (N<M);
     }
     public V get(K key){
@@ -43,9 +46,9 @@ public class DoubleHashing <K,V>{
     public static void main (String[] args){
         DoubleHashing t = new DoubleHashing();
 
-        t.put(25,"grape"); t.put(37,"apple"); t.put(18,"bananna");
-        t.put(55,"cherry");t.put(22,"mango"); t.put(35,"lime");
-        t.put(50,"orange"); t.put(63,"watermelon");
+        t.put(71,"grape"); t.put(23,"apple");t.put(73,"banana");
+        t.put(49,"orange"); t.put(54,"watermelon");t.put(89,"kiwi");
+        t.put(39,"mango");
 
         System.out.println("탐색 결과");
         System.out.println("50의 data = " + t.get(50));

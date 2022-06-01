@@ -1,7 +1,8 @@
 package DS_ETC9;
 //자료구조#9_60211646_김민수
 public class LinearProbing<K,V> {
-    private int M = 13; //테이블 크기
+    private int cnt;
+    private int M = 11; //테이블 크기
     private K[] a = (K[]) new Object[M]; //해시테이블
     private V[] d = (V[]) new Object[M]; //key 관련데이터
     private int hash(K key){
@@ -21,6 +22,8 @@ public class LinearProbing<K,V> {
                 return;
             }
             i =(initialpos + j++)%M;
+            ++cnt;
+            System.out.println("충돌: "+cnt);
         }while (i!= initialpos);
     }
     public V get(K key){
@@ -36,8 +39,10 @@ public class LinearProbing<K,V> {
     public static void main(String[] args) {
         LinearProbing t = new LinearProbing();
 
-        t.put(25,"grape"); t.put(37,"apple");t.put(18,"banana");
-        t.put(50,"orange"); t.put(63,"watermelon");
+        t.put(71,"grape"); t.put(23,"apple");t.put(73,"banana");
+        t.put(49,"orange"); t.put(54,"watermelon");t.put(89,"kiwi");
+        t.put(39,"mango");
+
         System.out.println("탐색 결과 :");
         System.out.println("50의 data ="+t.get(50));
         System.out.println("63의 data ="+t.get(63));
